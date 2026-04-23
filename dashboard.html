@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StockMaster Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-app">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">SM</div>
+        <div>
+          <div class="brand-name">StockMaster</div>
+        </div>
+      </div>
+      <nav class="menu-list">
+        <a class="menu-item active" href="#">Dashboard</a>
+        <a class="menu-item" href="#">Categories</a>
+        <a class="menu-item" href="#">Inventory</a>
+        <a class="menu-item" href="#">Orders</a>
+        <a class="menu-item" href="#">Shipments</a>
+        <a class="menu-item" href="#">Low Stock</a>
+        <a class="menu-item" href="#">Reports</a>
+        <a class="menu-item" href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <div class="main-panel">
+      <header class="topbar">
+        <div class="search-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="dashboardSearch" placeholder="Search products, orders, or categories..." aria-label="Search" />
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="icon-button" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="notification-badge"></span>
+          </button>
+          <button type="button" id="themeToggle" class="icon-button" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <div class="user-card">
+            <div class="user-avatar">AU</div>
+            <div class="user-details">
+              <div class="user-name">Admin User</div>
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <section class="stats-grid" id="statCards"></section>
+
+        <section class="charts-grid">
+          <div class="chart-panel">
+            <div class="panel-heading"><h2>Stock Trends</h2></div>
+            <canvas id="stockTrendChart"></canvas>
+          </div>
+          <div class="chart-panel">
+            <div class="panel-heading"><h2>Sales Analytics</h2></div>
+            <canvas id="salesChart"></canvas>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel card-panel">
+            <div class="panel-heading"><h2>Category Performance</h2></div>
+            <div class="category-list" id="categoryPerformance"></div>
+          </div>
+          <div class="panel card-panel">
+            <div class="panel-heading"><h2>Recent Activity</h2></div>
+            <div class="activity-feed" id="recentActivity"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
